@@ -39,9 +39,11 @@ module.exports = {
     //
     // Whitelist of all query parameters supported by the endpoint.
     // Not listed here will be filtered out.
-    queryParamsSupported: ['type', 'listType', 'challengeType', 'platforms', 'technologies'],
-    // Allowed values for the `type` query parameter.
-    validTypes: ['design', 'develop', 'data'],
-    // Allowed values for the `listType` query parameter.
-    validListTypes: ['active', 'past', 'upcoming']
+    queryParamsSupported: ['contestType', 'list', 'challengeType', 'platforms', 'technologies'],
+    // Allowed values for the `contestType` query parameter.
+    validTracks: ['design', 'develop', 'data'],
+    // Allowed values for the `list` query parameter.
+    validLists: ['active', 'past', 'upcoming'],
+
+    xmlMeta: '<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" media="screen" href="https://www.topcoder.com/wp-content/themes/tcs-responsive/css/rss2full.xsl"?>'
 };

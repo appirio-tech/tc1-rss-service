@@ -165,7 +165,7 @@ module.exports = function (req, res) {
             // Some query parameters present.
             // To be able to decide what to serve we need `type` and `listType` to be valid and present.
             // Let's validate them.
-            if (_.contains(config.validTypes, whiteListedQuery.type) && _.contains(config.validListTypes, whiteListedQuery.listType)) {
+            if (_.contains(config.validTracks, whiteListedQuery.type) && _.contains(config.validLists, whiteListedQuery.listType)) {
                 // Valid and present.
                 // Data challenges need different handling again.
                 if (whiteListedQuery.type == 'data') {
