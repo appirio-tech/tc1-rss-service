@@ -165,12 +165,12 @@ module.exports = function (req, res) {
             // Some query parameters present.
             // To be able to decide what to serve we need `type` and `listType` to be valid and present.
             // Let's validate them.
-            if (_.contains(config.validTracks, whiteListedQuery.type) && _.contains(config.validLists, whiteListedQuery.listType)) {
+            if (_.contains(config.validTracks, whiteListedQuery.contestType) && _.contains(config.validLists, whiteListedQuery.list)) {
                 // Valid and present.
                 // Data challenges need different handling again.
-                if (whiteListedQuery.type == 'data') {
+                if (whiteListedQuery.contestType == 'data') {
                     // Handle `data science` requests.
-                    var url_marathon = config.API_HOST + '/v2/data/marathon/challenges?listType=' + whiteListedQuery.listType + '&pageIndex=1&pageSize=2147483647';
+                    var url_marathon = config.API_HOST + '/v2/data/marathon/challenges?listType=' + whiteListedQuery.list + '&pageIndex=1&pageSize=2147483647';
 
                     log.info('GET %s', url_marathon);
 
@@ -205,8 +205,8 @@ module.exports = function (req, res) {
                     });
                 } else {
                     // All other types.
-                    var url_others = config.API_HOST + '/v2/challenges/' + whiteListedQuery.listType +
-                        '?type=' + whiteListedQuery.type +
+                    var url_others = config.API_HOST + '/v2/challenges/' + whiteListedQuery.list +
+                        '?type=' + whiteListedQuery.contestType +
                         '&pageIndex=1&pageSize=2147483647' +
                         (whiteListedQuery.challengeType ? ('&challengeType=' + whiteListedQuery.challengeType) : '') +
                         (whiteListedQuery.technologies ? ('&technologies=' + whiteListedQuery.technologies) : '') +
