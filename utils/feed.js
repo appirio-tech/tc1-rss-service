@@ -102,10 +102,15 @@ module.exports = function (req, res) {
         log.info('No cached response available. Using TC API...');
 
         // Default -> will return all challenges including `data science`.
-        if (_.isEmpty(whiteListedQuery)) {
+        if (_.isEmpty(whiteListedQuery) || !whiteListedQuery.contestType || whiteListedQuery.contestType == 'all') {
             var url_challenges = config.API_HOST + '/v2/challenges?pageIndex=1&pageSize=2147483647',
                 url_data = config.API_HOST + '/v2/data/marathon/challenges?pageIndex=1&pageSize=2147483647',
                 combined;
+
+            if (whiteListedQuery.list) {
+                url_challenges += '&listType=' + whiteListedQuery.list;
+                url_data += '&listType=' + whiteListedQuery.list;
+            }
 
             log.info('GET %s', url_challenges);
 
@@ -249,7 +254,7 @@ module.exports = function (req, res) {
                 res.status(400).send(
                     '<?xml version="1.0" encoding="UTF-8"?>' +
                     '<text>' +
-                    '<para>`type` and `listType` are required and expected to be valid query parameters</para>' +
+                    '<para>Invalid parameters</para>' +
                     '</text>'
                 );
                 processed = true;

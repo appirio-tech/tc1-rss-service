@@ -41,7 +41,7 @@ module.exports = {
     // Not listed here will be filtered out.
     queryParamsSupported: ['contestType', 'list', 'challengeType', 'platforms', 'technologies'],
     // Allowed values for the `contestType` query parameter.
-    validTracks: ['design', 'develop', 'data'],
+    validTracks: ['design', 'develop', 'data', 'all'],
     // Allowed values for the `list` query parameter.
     validLists: ['active', 'past', 'upcoming'],
 
