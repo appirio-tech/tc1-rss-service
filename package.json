@@ -17,7 +17,7 @@
     "request": "~2.53",
     "rss": "^1.0.1",
     "winston": "^0.8.3",
-    "sanitize-html": "~1.6",
+    "sanitize-html": "~1.27.5",
     "html-truncate": "~1.0",
     "moment": "~2.9"
   }
