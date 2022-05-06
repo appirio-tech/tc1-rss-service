@@ -14,7 +14,7 @@
     "lodash": "~3.5",
     "async": "~0.9",
     "memory-cache": "0.0.5",
-    "request": "~2.53",
+    "request": "~2.88.2",
     "rss": "^1.0.1",
     "winston": "^0.8.3",
     "sanitize-html": "~1.6",
